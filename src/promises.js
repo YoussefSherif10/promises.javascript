@@ -5,7 +5,7 @@ const todolist = require('./todolist')
 getAllTodos = () => {
     return new Promise((resolve,reject)=>{
         setTimeout(() => {
-            (todolist.length === 0) ? reject('No ToDos added yet') : resolve(todolist);
+            (todolist.length > 0) ? resolve(todolist) : reject('no todos yet');
         }, 2000);
     })
 }
@@ -13,7 +13,7 @@ getAllTodos = () => {
 createTodo = (todo) => {
    return new Promise((resolve,reject)=>{
       setTimeout(() => {
-
+          (todo) ? resolve(todolist.push(todo)) : reject('No data to be added');
       })
    })
 }
